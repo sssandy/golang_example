@@ -14,6 +14,7 @@ func (m *MyError) Error() string {
 
 	// 这里会导致神奇的栈溢出
 	// 由于此时m为nil, 会在里面触发 m 的error, 从而导致循环调用 error...  阔怕~
+	// 由于此时的m是error类型, fmt打印的时候会调用 Error 方法, 从而实现了嵌套调用, 栈溢出
 	str := fmt.Sprintf("error %v", m)
 
 	// str += " test"
