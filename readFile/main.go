@@ -9,12 +9,12 @@ import (
 )
 
 // 读取文件并按行处理
-func readFileAndProcessByLine (path string, proFunc func(string) interface{}) (ret *[]interface{}) {
+func readFileAndProcessByLine(path string, proFunc func(string) interface{}) (ret *[]interface{}) {
 	ret = &[]interface{}{}
 
 	// 默认后置处理方法
 	if proFunc == nil {
-		proFunc = func (str string) interface{} {
+		proFunc = func(str string) interface{} {
 			// 返回 '\t' 分割的数据
 			ret := strings.Split(str, "\t")
 
@@ -48,9 +48,29 @@ func readFileAndProcessByLine (path string, proFunc func(string) interface{}) (r
 	return ret
 }
 
-func main () {
-	path := "readFile/data/dict.txt"
-	ret := readFileAndProcessByLine(path, nil)
+func main() {
+	// path := "readFile/data/dict.txt"
+	// ret := readFileAndProcessByLine(path, nil)
+	// fmt.Println((*ret)[0])
 
-	fmt.Println((*ret)[0])
+	/*
+	cc := 0
+	cc = c()
+
+	fmt.Println(cc)
+	*/
+
+	// var i int
+	s := fmt.Sprintf("hh %v", nil)
+
+	fmt.Printf(s)
+}
+
+func c() (i int) {
+	defer func() {
+		i++
+		fmt.Println(i)
+	}()
+	panic(i)
+	return 1
 }
